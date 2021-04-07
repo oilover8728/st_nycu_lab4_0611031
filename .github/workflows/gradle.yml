@@ -54,6 +54,7 @@ jobs:
     - name: Assemble
       run: ./gradlew assemble
      
+     #aaa
     - id: Get_artifact_jar_name
       run: echo "::set-output name=jar_name::buildJar"
       
