@@ -77,7 +77,7 @@ jobs:
         
       with:
         name: testReport
-        path: build/reports
+        path: build/reports/
 
   release:
     name: Release
