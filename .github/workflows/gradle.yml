@@ -39,6 +39,13 @@ jobs:
     - name: Test
       run: ./gradlew compileTestJava
       
+    - name: Upload workflow report file
+      uses: actions/upload-artifact@v2
+        
+      with:
+        name: testReport
+        path: build/reports
+      
   assemble:
     needs: test
     runs-on: ubuntu-latest
@@ -64,13 +71,6 @@ jobs:
       with:
         name: ${{ steps.Get_artifact_jar_name.outputs.jar_name }}
         path: build/libs/
-        
-    - name: Upload workflow report file
-      uses: actions/upload-artifact@v2
-        
-      with:
-        name: testReport
-        path: build/reports/
 
   release:
     name: Release
