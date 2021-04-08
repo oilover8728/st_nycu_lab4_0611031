@@ -37,7 +37,11 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Test
-      run: ./gradlew compileTestJava
+      run: |
+        ./gradlew compileTestJava
+        ./gradlew processTestResources
+        ./gradlew testClasses
+        ./gradlew test
       
     - name: Upload workflow report file
       uses: actions/upload-artifact@v2
